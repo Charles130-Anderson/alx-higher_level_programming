@@ -1,4 +1,3 @@
 #!/bin/bash
-#the script is run using bash shell
-python3 "$PYFILE"
+python3 "$PYFILE" #the script is run using bash shell
 
