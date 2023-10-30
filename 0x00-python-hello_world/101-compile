@@ -1,9 +1,3 @@
-#!/usr/bin/python3
-import os
-import py_compile
-
-pyfile = os.environ['PYFILE']
-outputfile = pyfile + "c"
-
-print(f"Compiling {pyfile} ...")
-py_compile.compile(pyfile, outputfile)
+#!/bin/bash
+python -m py_compile $PYFILE
+mv ${PYFILE}c ${PYFILE}c
