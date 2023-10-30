@@ -1,5 +1,1 @@
-#/bin/bash
-#defining the environmental variable
-export PYFILE=main.py
-#the script is run using bash shell
-python3 "$PYFILE"
+
