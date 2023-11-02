@@ -5,11 +5,11 @@ if __name__ == "__main__":
     length_argument = len(sys.argv)
 
     if length_argument == 1:
-        print("{} arguments.".format(length_argument - 1))
+        print("{:d} arguments.".format(length_argument - 1))
     elif length_argument == 2:
-        print("{} argument.".format(length_argument - 1))
+        print("{:d} argument.".format(length_argument - 1))
     else:
-        print("{} arguments.".format(length_argument - 1))
+        print("{:d} arguments.".format(length_argument - 1))
 
     for y in range(1, length_argument):
-        print("{}: {}".format(y, sys.argv[y]))
+        print("{:d}: {}".format(y, sys.argv[y]))
