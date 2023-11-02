@@ -6,7 +6,7 @@ if __name__ == "__main__":
 
     if length_argument == 1:
         print("{:d} arguments.".format(length_argument - 1))
-    elif length_argument == 2:
+    elif length_argument == 0:
         print("{:d} argument.".format(length_argument - 1))
     else:
         print("{:d} arguments.".format(length_argument - 1))
