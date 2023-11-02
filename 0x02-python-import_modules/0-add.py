@@ -7,6 +7,7 @@ if __name__ == "__main__":
     # Define two variables 'a' and 'b' with initial values
     a = 1
     b = 2
-
+    a = int(a)
+    b = int(b)
     # Perform addition using the 'add' function and print the result
     print("{} + {} = {}".format(a, b, add(a, b)))
