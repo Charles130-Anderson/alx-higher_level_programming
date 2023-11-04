@@ -7,3 +7,5 @@ def print_matrix_integer(matrix=[[]]):
             if element != row[-1]:
                 print(end=" ")
         print()
+
+print_matrix_integer([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
