@@ -1,7 +1,6 @@
-def no_c(my_string):
-    new_string = ''
-    for char in my_string:
-        if char != 'c' and char != 'C':
-            new_string += char
-    return new_string
+#!/usr/bin/python3
 
+def no_c(my_string):
+    new_statement = my_string.translate({ord('c'): None})
+    new_statement = my_string.translate({ord('C'): None})
+    return new_statement
