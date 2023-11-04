@@ -1,4 +1,5 @@
-def no_c(my_string):
- table = {ord('c'): None, ord('C'): None}
- return my_string.translate(table)
+#!/usr/bin/python3
 
+def no_c(my_string):
+    table = {ord('c'): None, ord('C'): None}
+    return my_string.translate(table)
