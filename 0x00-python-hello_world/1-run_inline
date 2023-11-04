@@ -1,3 +1,0 @@
-#!/bin/bash
-#-c option for passing a string as an argument
-python -c "$PYCODE"
