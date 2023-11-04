@@ -1,6 +1,3 @@
-#!/usr/bin/python3
-
 def no_c(my_string):
-    new_statement = my_string.translate({ord('c'): None})
-    new_statement = my_string.translate({ord('C'): None})
+    new_statement = my_string.replace('c', '').replace('C', '')
     return new_statement
