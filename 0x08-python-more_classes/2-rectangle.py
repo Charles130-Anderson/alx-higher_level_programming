@@ -1,14 +1,13 @@
 #!/usr/bin/python3
-"""Defining the Rectangle class."""
-
+"""Defining  the Rectangle class."""
 
 class Rectangle:
     """
     Rectangle class represents a rectangle.
 
     Attributes:
-        width (int): Width of the rectangle.
-        height (int): Height of the rectangle.
+        __width (int): Width of the rectangle.
+        __height (int): Height of the rectangle.
     """
     def __init__(self, width=0, height=0):
         """
@@ -18,8 +17,8 @@ class Rectangle:
             width (int): Width of the rectangle. Defaults to 0.
             height (int): Height of the rectangle. Defaults to 0.
         """
-        self.width = width
-        self.height = height
+        self.__width = width
+        self.__height = height
 
     @property
     def width(self):
@@ -87,4 +86,6 @@ class Rectangle:
         Returns:
             int: Perimeter of the rectangle.
         """
+        if self.__width == 0 or self.__height == 0:
+            return 0
         return 2 * (self.__width + self.__height)
