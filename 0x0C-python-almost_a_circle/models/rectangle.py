@@ -189,3 +189,28 @@ class Rectangle(Base):
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
             self.id, self.x, self.y, self.width, self.height
         )
+
+    def to_csv_row(self):
+        """
+        Returns a list representing the CSV row for Rectangle serialization.
+
+        Returns:
+        list: List containing id, width, height, x, and y.
+        """
+        return [
+            str(getattr(self, key))
+            for key in ["id", "width", "height", "x", "y"]
+        ]
+
+    @classmethod
+    def create_from_csv_row(cls, row):
+        """
+        Creates a Rectangle instance from a CSV row.
+
+        Parameters:
+        - row (list): List containing id, width, height, x, and y.
+
+        Returns:
+        Rectangle: Created Rectangle instance.
+        """
+        return cls(*map(int, row))

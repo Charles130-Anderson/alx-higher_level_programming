@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """Defines the  square class."""
+import csv
 from models.rectangle import Rectangle
 
 
@@ -82,13 +83,24 @@ class Square(Rectangle):
             "y": self.y
         }
 
-    def __str__(self):
+    def to_csv_row(self):
         """
-        String representation of the Square instance.
+        Returns a list representing the CSV row for Square serialization.
 
         Returns:
-        str: Formatted string representing the Square.
+        list: List containing id, size, x, and y.
         """
-        return "[Square] ({}) {}/{} - {}".format(
-            self.id, self.x, self.y, self.width
-        )
+        return [str(getattr(self, key)) for key in ["id", "size", "x", "y"]]
+
+    @classmethod
+    def create_from_csv_row(cls, row):
+        """
+        Creates a Square instance from a CSV row.
+
+        Parameters:
+        - row (list): List containing id, size, x, and y.
+
+        Returns:
+        Square: Created Square instance.
+        """
+        return cls(*map(int, row))

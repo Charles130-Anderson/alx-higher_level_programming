@@ -109,3 +109,35 @@ class Base:
                 return instances
         except FileNotFoundError:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        Serializes instances to a CSV file.
+
+        Parameters:
+        - list_objs (list): List of instances to be serialized.
+        """
+        filename = cls.__name__ + ".csv"
+        with open(filename, mode='w', newline='') as file:
+            writer = csv.writer(file)
+            for obj in list_objs:
+                writer.writerow(obj.to_csv_row())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        Deserializes instances from a CSV file.
+
+        Returns:
+        list: List of instances loaded from the file.
+        """
+        filename = cls.__name__ + ".csv"
+        try:
+            with open(filename, mode='r') as file:
+                reader = csv.reader(file)
+                header = next(reader)
+                instances = [cls.create_from_csv_row(row) for row in reader]
+                return instances
+        except FileNotFoundError:
+            return []
