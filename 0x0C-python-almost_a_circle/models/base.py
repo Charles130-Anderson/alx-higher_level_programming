@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 """Defines the  base model class."""
+import turtle
 import json
 import csv
 
@@ -141,3 +142,38 @@ class Base:
                 return instances
         except FileNotFoundError:
             return []
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """
+        Opens a window and draws all the Rectangles and Squares.
+
+        Parameters:
+        - list_rectangles (list): List of Rectangle instances.
+        - list_squares (list): List of Square instances.
+        """
+        turtle.speed(2)
+        turtle.title("Draw Rectangles and Squares")
+
+        for rect in list_rectangles:
+            turtle.penup()
+            turtle.goto(rect.x, rect.y)
+            turtle.pendown()
+            turtle.forward(rect.width)
+            turtle.right(90)
+            turtle.forward(rect.height)
+            turtle.right(90)
+            turtle.forward(rect.width)
+            turtle.right(90)
+            turtle.forward(rect.height)
+            turtle.right(90)
+
+        for square in list_squares:
+            turtle.penup()
+            turtle.goto(square.x, square.y)
+            turtle.pendown()
+            for _ in range(4):
+                turtle.forward(square.size)
+                turtle.right(90)
+
+        turtle.exitonclick()
