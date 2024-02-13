@@ -1,3 +1,3 @@
--- List all tables in the specified database
-USE dbname;
+-- List all tables in the specified databas;
+MySQL server.
 SHOW TABLES;
