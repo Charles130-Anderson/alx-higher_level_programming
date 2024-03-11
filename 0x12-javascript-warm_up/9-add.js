@@ -1,7 +1,7 @@
 #!/usr/bin/node
 
 function add(a, b) {
-  return a + b;
+  return (isNaN(a) || isNaN(b)) ? NaN : a + b;
 }
 
 const num1 = parseInt(process.argv[2]);
