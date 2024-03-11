@@ -4,7 +4,7 @@ function add(a, b) {
   return a + b;
 }
 
-const num1 = parseInt(process.argv[2]);
-const num2 = parseInt(process.argv[3]);
-const output = add(num1, num2);
+const arg2 = parseInt(process.argv[2]);
+const arg3 = parseInt(process.argv[3]);
+const output = add(arg2, arg3);
 console.log(output);
