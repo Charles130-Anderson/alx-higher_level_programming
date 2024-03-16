@@ -15,18 +15,15 @@ if __name__ == "__main__":
     # Create cursor
     cursor = db.cursor()
 
-    # Prepare query
-    query = "SELECT * FROM states WHERE name LIKE %s"
-
     # Execute query with parameterized input
     match = sys.argv[4]  # Store the search term
-    cursor.execute(query, (match,))
+    cursor.execute("SELECT * FROM states WHERE name LIKE %s", (match,))
 
     # Fetch all results
-    rows = cursor.fetchall()
+    results = cursor.fetchall()
 
     # Print results
-    for row in rows:
+    for row in results:
         print(row)
 
     # Close cursor and connection
