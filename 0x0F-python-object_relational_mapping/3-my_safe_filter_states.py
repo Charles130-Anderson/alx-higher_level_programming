@@ -17,7 +17,7 @@ if __name__ == "__main__":
 
     # Execute query with parameterized input
     match = sys.argv[4]  # Store the search term
-    cursor.execute("SELECT * FROM states WHERE name LIKE %s ORDER BY id ASC", (match,))
+    cursor.execute("SELECT * FROM states WHERE name LIKE %s", (match,))
 
     # Fetch all results
     results = cursor.fetchall()
