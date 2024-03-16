@@ -16,8 +16,9 @@ if __name__ == "__main__":
     cursor = db.cursor()
 
     # Execute query
-    query = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC".format(sys.argv[4])
-    cursor.execute(query)
+    cursor.execute("""
+        SELECT * FROM states WHERE name LIKE BINARY '{}'
+    """.format(sys.argv[4]))
 
     # Fetch all results
     results = cursor.fetchall()
