@@ -9,21 +9,24 @@ import sys
 
 if __name__ == "__main__":
     # Connect to MySQL server
-    db = MySQLdb.connect(host="localhost", port=3306, user=sys.argv[1],
-                         passwd=sys.argv[2], db=sys.argv[3], charset="utf8")
+    db = MySQLdb.connect(host="localhost", user=sys.argv[1],
+                         passwd=sys.argv[2], db=sys.argv[3])
 
     # Create cursor
     cursor = db.cursor()
 
+    # Prepare query
+    query = "SELECT * FROM states WHERE name LIKE %s"
+
     # Execute query with parameterized input
     match = sys.argv[4]  # Store the search term
-    cursor.execute("SELECT * FROM states WHERE name LIKE %s", (match,))
+    cursor.execute(query, (match,))
 
     # Fetch all results
-    results = cursor.fetchall()
+    rows = cursor.fetchall()
 
     # Print results
-    for row in results:
+    for row in rows:
         print(row)
 
     # Close cursor and connection
