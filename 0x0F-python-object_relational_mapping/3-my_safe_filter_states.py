@@ -15,12 +15,9 @@ if __name__ == "__main__":
     # Create cursor
     cursor = db.cursor()
 
-    # Prepare query with placeholders
-    query = "SELECT * FROM states WHERE name LIKE %s ORDER BY id ASC"
-
     # Execute query with parameterized input
     match = sys.argv[4]  # Store the search term
-    cursor.execute(query, (match,))
+    cursor.execute("SELECT * FROM states WHERE name LIKE %s ORDER BY id ASC", (match,))
 
     # Fetch all results
     results = cursor.fetchall()
