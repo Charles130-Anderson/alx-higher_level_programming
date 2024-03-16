@@ -16,10 +16,11 @@ if __name__ == "__main__":
     cursor = db.cursor()
 
     # Prepare query with placeholders
-    query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
+    query = "SELECT * FROM states WHERE name LIKE %s ORDER BY id ASC"
 
     # Execute query with parameterized input
-    cursor.execute(query, (sys.argv[4],))
+    match = sys.argv[4]  # Store the search term
+    cursor.execute(query, (match,))
 
     # Fetch all results
     results = cursor.fetchall()
