@@ -1,34 +1,33 @@
 #!/usr/bin/python3
 """
-Connect to MySQL, fetch states by name, and print.
+Script that takes in arguments and displays all values in the states table
+of hbtn_0e_0_usa where name matches the argument. (Safe from MySQL injection)
 """
 
 import MySQLdb
 import sys
 
+if __name__ == "__main__":
+    # Connect to MySQL server
+    db = MySQLdb.connect(host="localhost", port=3306, user=sys.argv[1],
+                         passwd=sys.argv[2], db=sys.argv[3], charset="utf8")
 
-def main(user, password, db_name, state_name):
-    """Connect to MySQL, fetch states by name, and print."""
-    # Connect to the database
-    conn = MySQLdb.connect(
-        host="localhost",
-        port=3306,
-        user=user,
-        passwd=password,
-        db=db_name,
-        charset="utf8"
-    )
-    cur = conn.cursor()
+    # Create cursor
+    cursor = db.cursor()
 
-    # Use a parameterized query to prevent SQL injection
+    # Prepare the SQL query with parameterized input
     query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
-    cur.execute(query, (state_name,))
 
-    # Fetch and display the results
-    query_rows = cur.fetchall()
-    for row in query_rows:
+    # Execute query with parameterized input
+    cursor.execute(query, (sys.argv[4],))
+
+    # Fetch all results
+    results = cursor.fetchall()
+
+    # Print results
+    for row in results:
         print(row)
 
-    # Close the cursor and connection
-    cur.close()
-    conn.close()
+    # Close cursor and connection
+    cursor.close()
+    db.close()
