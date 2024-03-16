@@ -24,7 +24,8 @@ if __name__ == "__main__":
 
     # Print results
     for city in cities:
-        state_name = session.query(State).filter_by(id=city.state_id).first().name
+        state = session.query(State).filter_by(id=city.state_id).first()
+        state_name = state.name
         print("{}: ({}) {}".format(state_name, city.id, city.name))
 
     # Close the session
