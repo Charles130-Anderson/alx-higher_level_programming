@@ -11,19 +11,16 @@ if __name__ == "__main__":
     password = sys.argv[2]
 
     # Define the URL for the GitHub API to get user information
-    url = f"https://api.github.com/users/{username}"
+    url = "https://api.github.com/user"
 
-    # Set up Basic Authentication with the personal access token
-    auth = (username, password)
-
-    # Send a GET request to the GitHub API
-    response = requests.get(url, auth=auth)
+    # Send a GET request to the GitHub API with Basic Authentication
+    response = requests.get(url, auth=(username, password))
 
     # Check if the request was successful
     if response.status_code == 200:
         # Parse the response JSON
         user_info = response.json()
         # Display the user's id
-        print(user_info['id'])
+        print(user_info.get("id"))
     else:
         print(None)
