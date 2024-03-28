@@ -387,19 +387,17 @@ File: 10-my_github.py
 sln 
 
 1. Start
-2. Get the GitHub username and password (personal access token) from the command-line arguments
-3. Define the URL for the GitHub API to fetch user information using the provided username
-4. Set up Basic Authentication with the personal access token
-5. Send a GET request to the GitHub API using requests.get()
-6. Check if the request was successful (status code 200)
-7. If the request was successful:
-    8. Parse the response JSON to extract user information
-    9. Display the user's id
-10. If the request was not successful:
-    11. Display None
-12. End
+2. Get the GitHub username and password from the command-line arguments
+3. Define the URL for the GitHub API to fetch user information
+4. Send a GET request to the GitHub API with Basic Authentication using the provided username and password
+5. Check if the request was successful (status code 200)
+6. If the request was successful:
+    7. Parse the response JSON to extract user information
+    8. Display the user's id
+7. If the request was not successful:
+    8. Print None
+9. End
 
-10. Time for an interview!
 #advanced
 The Holberton School staff evaluates candidates applying for a back-end position with multiple technical challenges, like this one:
 
