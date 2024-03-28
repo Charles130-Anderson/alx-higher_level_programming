@@ -1,20 +1,21 @@
 #!/usr/bin/python3
-"""
-Takes GitHub credentials and displays the user's id.
-"""
-
 import requests
 import sys
 
-url = 'http://0.0.0.0:5000/search_user'
-q = sys.argv[1] if len(sys.argv) > 1 else ""
-response = requests.post(url, data={'q': q})
-try:
-    data = response.json()
-    if data:
-        for item in data:
-            print("[{}] {}".format(item['id'], item['name']))
-    else:
-        print("No result")
-except ValueError:
-    print("Not a valid JSON")
+# Command-line arguments: username and personal access token
+username = sys.argv[1]
+token = sys.argv[2]
+
+# GitHub API endpoint for fetching user information
+url = "https://api.github.com/user"
+
+# Using Basic Authentication with the username and personal access token
+response = requests.get(url, auth=(username, token))
+
+# Check if the request was successful
+if response.status_code == 200:
+    # Extract the user ID from the response JSON
+    user_id = response.json().get('id')
+    print(user_id)
+else:
+    print("None")
